@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Um convite especial</title>
+<style>
+*{box-sizing:border-box} body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 35%,#292929,#090909 65%);display:grid;place-items:center;font-family:Georgia,"Times New Roman",serif;color:#f7f0df;overflow:hidden}
+.wrap{text-align:center;padding:24px}.hint{font-family:Arial,sans-serif;letter-spacing:2px;font-size:11px;text-transform:uppercase;color:#c7a96b;margin-bottom:25px;opacity:.9}
+.scene{width:min(88vw,390px);height:260px;perspective:1000px;cursor:pointer;position:relative}
+.envelope{position:absolute;inset:20px 0 0;background:#111;border:1px solid #b89452;border-radius:5px;box-shadow:0 22px 45px #000;transform-style:preserve-3d;transition:transform .9s}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 49.5%,#292929 50%,transparent 50.5%),linear-gradient(225deg,transparent 49.5%,#292929 50%,transparent 50.5%);opacity:.75}
+.flap{position:absolute;left:0;top:0;width:100%;height:58%;background:#171717;border:1px solid #b89452;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1s cubic-bezier(.2,.8,.2,1);z-index:4}
+.seal{position:absolute;z-index:5;left:50%;top:42%;transform:translate(-50%,-50%);width:45px;height:45px;border-radius:50%;border:1px solid #d0ae6c;background:#17120b;color:#d8b875;display:grid;place-items:center;font-size:20px;transition:.5s}
+.card{position:absolute;left:7%;right:7%;top:0;height:235px;background:linear-gradient(145deg,#f7f0df,#ded2b8);color:#17130d;border-radius:4px;padding:34px 24px;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 10px 30px #000;transform:translateY(80px);opacity:0;transition:transform 1s .15s,opacity .5s .15s;z-index:2}
+.card p{font-size:23px;line-height:1.35;margin:0}.card small{display:block;margin-top:18px;font-family:Arial,sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8d6c35}
+.open .flap{transform:rotateX(180deg)} .open .seal{opacity:0;transform:translate(-50%,-50%) scale(.5)} .open .card{transform:translateY(-10px);opacity:1}.open .envelope{transform:translateY(35px)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hint">Toque no envelope para abrir</div>
+<div class="scene" id="scene" aria-label="Abrir convite">
+  <div class="card"><div><p>“Aceitas tomar um café com esta gatinha no Shopping Beiramar hoje às 15:00?”</p><small>Um convite especialmente para você ☕</small></div></div>
+  <div class="envelope"><div class="flap"></div><div class="seal">♡</div></div>
+</div>
+</div>
+<script>
+document.getElementById('scene').addEventListener('click',()=>document.getElementById('scene').classList.toggle('open'));
+</script>
+</body>
+</html>
